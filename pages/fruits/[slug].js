@@ -7,15 +7,15 @@ import RenderSection1 from "@/components/first-section";
 import RenderSection2 from "@/components/second-section";
 import useLocalStorageState from "use-local-storage-state";
 
-export default function RenderFruitPages() {
+export default function RenderFruitPages({fruits}) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const fruitIndex = fruitarray.findIndex(
+  const fruitIndex = fruits.findIndex(
     ({ slug }) => slug === router.query.slug
   );
 
-  const fruit = fruitarray[fruitIndex];
+  const fruit = fruits[fruitIndex];
 
   if (!fruit) {
     return null;
